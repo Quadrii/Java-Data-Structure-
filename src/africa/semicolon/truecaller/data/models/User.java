@@ -1,6 +1,8 @@
 package africa.semicolon.truecaller.data.models;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
 
 public class User {
     private String firstName;
@@ -60,4 +62,7 @@ public class User {
         this.userName = userName;
     }
 
+    public List<Contact> getContacts() {
+        return contacts;
+    }
 }

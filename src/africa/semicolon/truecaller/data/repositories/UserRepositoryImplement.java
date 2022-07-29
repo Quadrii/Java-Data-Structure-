@@ -53,10 +53,10 @@ public class UserRepositoryImplement implements UserRepository{
     }
 
     @Override
-    public List<User> findByFirstName(String firstName) {
+    public User findByFirstName(String firstName) {
         for (var myUser : users){
             if (myUser.getFirstName() == firstName){
-                return users;
+                return myUser;
             }
         }
         return null;

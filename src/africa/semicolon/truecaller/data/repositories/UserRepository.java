@@ -9,7 +9,7 @@ public interface UserRepository {
     void delete(User user);
     void delete(int id);
     User findById(int id);
-    List<User> findByFirstName(String firstName);
+    User findByFirstName(String firstName);
     List<User> findByLastName(String lastName);
     List<User> findAll();
     int count();

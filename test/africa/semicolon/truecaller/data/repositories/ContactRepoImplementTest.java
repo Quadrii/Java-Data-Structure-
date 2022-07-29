@@ -32,7 +32,7 @@ class ContactRepoImplementTest {
         assertEquals("Ojo", saveContact.getFirstName());
     }
     @Test
-    public void DeletesaveContact(){
+    public void DeleteSaveContact(){
         ContactRepository contact = new ContactRepoImplement();
         Contact contact1 = new Contact();
 
