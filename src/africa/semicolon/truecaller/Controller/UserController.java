@@ -12,10 +12,12 @@ import java.util.List;
 public class UserController {
     private UserService userService = new UserService();
     public RegisterUserResponse registerUser(RegisterRequest registerRequest){
+        System.out.println("User registered successfully");
         return userService.register(registerRequest);
     }
 
     public AddContactResponse addContact(AddContactReq addContactReq){
+        System.out.println("Contact added successfully");
         return userService.addContact(addContactReq);
     }
     public List<Contact> findCont(String email){

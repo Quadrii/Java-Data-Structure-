@@ -65,4 +65,13 @@ public class User {
     public List<Contact> getContacts() {
         return contacts;
     }
+    @Override
+    public String toString() {
+        return String.format("""
+                First Name: %s
+                Last Name: %s
+                Email: %s
+                Username:%s
+                """, getFirstName(), getLastName(), getEmail(), getUserName());
+    }
 }

@@ -6,7 +6,15 @@ public class Contact {
     private String lastName;
     private String phoneNumber;
     private String email;
+    private String userEmail;
 
+    public String getUserEmail() {
+        return userEmail;
+    }
+
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
+    }
 
     public String getFirstName() {
         return firstName;
@@ -46,5 +54,15 @@ public class Contact {
 
     public int getId() {
         return id;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("""
+                First Name: %s
+                Last Name: %s
+                Phone Number: %s
+                Email:%s
+                """, getFirstName(), getLastName(), getPhoneNumber(), getEmail());
     }
 }

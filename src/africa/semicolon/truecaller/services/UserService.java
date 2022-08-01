@@ -15,11 +15,12 @@ import africa.semicolon.truecaller.exceptions.UserExistsException;
 import java.util.List;
 
 public class UserService implements iUserService{
-    private UserRepository userRepository = new UserRepositoryImplement();
+    private UserRepository userRepository;
+    private ContactRepository contactRepository;
     private  final iContactService contactService;
     public UserService(){
         this.userRepository = new UserRepositoryImplement();
-        ContactRepository contactRepository = new ContactRepoImplement();
+        this.contactRepository = new ContactRepoImplement();
         this.contactService =new ContactService();
     }
     @Override
@@ -42,10 +43,10 @@ public class UserService implements iUserService{
     public AddContactResponse addContact(AddContactReq AddContactResponse) {
         Contact contact = new Contact();
         contact.setEmail(AddContactResponse.getEmail());
-        contact.setEmail(AddContactResponse.getFirstName());
-        contact.setEmail(AddContactResponse.getLastName());
-        contact.setEmail(AddContactResponse.getPhoneNumber());
-
+        contact.setFirstName(AddContactResponse.getFirstName());
+        contact.setLastName(AddContactResponse.getLastName());
+        contact.setPhoneNumber(AddContactResponse.getPhoneNumber());
+        contact.setUserEmail(AddContactResponse.getUserEmail());
         Contact savedContact = contactService.addNewContact(contact);
         User user = userRepository.findByEmail((AddContactResponse.getUserEmail()));
         user.getContacts().add(savedContact);
@@ -70,5 +71,4 @@ public class UserService implements iUserService{
         User user = userRepository.findByEmail(userEmail);
         return user.getContacts();
     }
-
 }
